@@ -6,6 +6,13 @@ router.get('/', function(req, res) {
 	res.sendFile('index.html', { root: 'public' });
 });
 
+router.post('/pokemon', function(req, res) {
+    console.log("In Pokemon Post");
+    console.log(req.body);
+    pokemon.push(req.body);
+    res.end('{"success" : "Updated Successfully", "status" : 200}');
+});
+
 router.get('/pokemon', function(req, res) {
 	console.log("In Pokemon");
 	var pokemon = [
