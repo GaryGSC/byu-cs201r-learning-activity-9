@@ -1,3 +1,4 @@
+var request = require('request')
 var express = require('express');
 var router = express.Router();
 
@@ -35,6 +36,12 @@ router.get('/pokemon', function(req, res) {
 			    }
 	];
 	res.send(pokemon);
+});
+
+var politics = "https://zlzlap7j50.execute-api.us-east-1.amazonaws.com/prod";
+router.get('/politics', function(req,res) {
+    console.log("In politics");
+    request(politics).pipe(res);
 });
 
 module.exports = router;
